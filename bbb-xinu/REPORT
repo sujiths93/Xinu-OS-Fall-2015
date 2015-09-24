@@ -1,4 +1,4 @@
-1. Yes, the program outputs garbage values, in the given problem one acts as a producer ,producing values,anohter process 
+1. Yes, the program outputs garbage values, in the given problem one acts as a producer ,producing values,another process 
 acts as a consumer by accepting data.Ideally, the co-ordination between the two processes should be such that each item produced
 must be recieved by the consumer.However, in this case, sunce there is no synchronization between the two processes, the producer
 does not wait wait for the consumer process to consume data,nor does the consumer wait for the producer to produce values thereby 
