@@ -1,0 +1,15 @@
+1. Yes, the program outputs garbage values, in the given problem one acts as a producer ,producing values,anohter process acts as a consumer by accepting data. Ideally, the co-ordination between the two processes should be such that each item produced must be recieved by the consumer.However, in this case, sunce there is no synchronization between the two processes, the producer does not wait wait for the consumer process to consume data, nor does the consumer wait for the producer to produce values thereby displaying garbage values.
+
+2. No, all values produced are not getting consumed even when the value of count is 20.
+
+3. Functions used.
+
+   i. producer(int count)
+      Used to produce values from 0 to count.
+   
+   ii. consumer(int count)
+      Used to consume values from 0 till the values produced. 
+
+4. Producer.c function done by Sujith
+   Consume.c  function done by Supreeth.
+   Prodcons.c done by Sujith, Supreeth. 

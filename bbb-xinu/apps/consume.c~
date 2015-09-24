@@ -1,0 +1,12 @@
+#include<prodcons.h>
+
+void consumer(int count)
+{	
+	int j;
+	for(j=0;j<=count;j++)
+	{	
+	   printf("Consumed:%d\n",n);
+	}
+}
+	  
+	

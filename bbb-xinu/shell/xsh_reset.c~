@@ -1,0 +1,6 @@
+#include<xinu.h>
+shellcmd xsh_reset(int nargs,char *args[])
+{
+volatile unint32 *prm_rstctrl=(volatile unint32 *)0x44E00F00;
+*prm_rstctrl=0x01;
+}
