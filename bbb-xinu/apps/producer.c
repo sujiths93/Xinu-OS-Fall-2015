@@ -1,11 +1,17 @@
 #include <prodcons.h>
-void producer(int count)
+
+void producer(int count,sid32 consumed,sid32 produced)
 {
+
 	int i;
-	for(i=0;i<count;i++)
+	for(i=1;i<=count;i++)
 	{
-	  n=i;
-	  kprintf("Produced:%d",n);
+	  
+	  wait(produced);
+	  n=i;	  
+	  kprintf("Produced:%d \n",n);
+	  signal(consumed);
 	}
-return 0;
+
+exit(0);
 }

@@ -7,7 +7,7 @@ shellcmd xsh_hello(int,char *[]);
 shellcmd xsh_reset(int,char *[]);
 
 /*in file xsh_prodcons.c*/
-extern shellcmd xsh_prodcons(int, char *[]);
+shellcmd xsh_prodcons(int, char *[]);
 
 /* in file xsh_arp.c */
 extern	shellcmd  xsh_arp	(int32, char *[]);

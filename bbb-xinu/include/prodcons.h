@@ -1,8 +1,7 @@
 #include <xinu.h>
-#include <stddef.h>
-#include <stdio.h>
- 
+
+extern sid32 consumed,produced; 
 extern int n;
 
-void consumer(int count);
-void producer(int count);
+void consumer(int,sid32,sid32);
+void producer(int,sid32,sid32);
