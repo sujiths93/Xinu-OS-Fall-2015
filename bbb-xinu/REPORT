@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 1. Initially the "consumed"- associated with consumer function is initalized with value 0, the "produced"-associated with the producer function is initialized  with value 1. The control enters the producer function , executes wait() and proceeds further because the "produced" value is still positive thereby printing the first value it produces i.e. 1, meanwhile the consumer function executes wait(), it gets blocked because the value become negative.When the control reaches the end of producer function it signals "consumed", thereby allowing the consumer function to consume the first value produced.This cycle repeats until the program terminates, therefore achieving synchronization. 
+=======
+1. Yes, the program outputs garbage values, in the given problem one acts as a producer ,producing values,another process 
+acts as a consumer by accepting data.Ideally, the co-ordination between the two processes should be such that each item produced
+must be recieved by the consumer.However, in this case, since there is no synchronization between the two processes, the producer
+does not wait for the consumer process to consume data,nor does the consumer wait for the producer to produce data, thereby 
+displaying garbage values(where the output data shows randomly mixed print statements).
+>>>>>>> 8a937535eac14f3913d010de684bfd66435c4663
 
 2. No, all values produced are not getting consumed even when the value of count is 20.
 
