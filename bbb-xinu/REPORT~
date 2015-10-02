@@ -1,6 +1,37 @@
 1. Initially the "consumed"- associated with consumer function is initalized with value 0, the "produced"-associated with the producer function is initialized  with value 1. The control enters the producer function , executes wait() and proceeds further because the "produced" value is still positive thereby printing the first value it produces i.e. 1, meanwhile the consumer function executes wait(), it gets blocked because the value become negative.When the control reaches the end of producer function it signals "consumed", thereby allowing the consumer function to consume the first value produced.This cycle repeats until the program terminates, therefore achieving synchronization. 
 
-2. No, all values produced are not getting consumed even when the value of count is 20.
+2. No, We can't use a single semaphpore to obtain the desired result. We basically use two semaphores, one Produced and another Consumed to wait for the respective signals from the two processes.
+Say for example, if we use a single semaphore in the below code snippet of producer.c and consumer.c
+
+void producer(int count)
+{
+ int i;
+ for(i=1;i<=count;i++)
+   {
+     wait(semaphore);	
+     n=i;	// n is a global variable
+     kprintf("produced: %d\n",n);
+     signal(semaphore);
+   }
+}
+
+and
+
+void consumer(int count)
+{
+ int i;
+ for(i=1;i<=count;i++)
+   {
+     wait(semaphore);	
+     n = i;	// n is a global variable
+     kprintf("Consumed: %d\n",n);
+     signal(semaphore);
+   }
+}
+
+Let's assume the semaphore value to be 1, wait call in both the processes will allow them to execute concurrently causing the processes to output unexpected results.
+If the semaphore value is 0, wait call will block both the processes.
+Both the processes are making use of a single semaphore, which is the root cause of asynchronization.
 
 3. Functions used.
 
@@ -9,6 +40,10 @@
    
    ii. consumer(int count,sid32 consumed,sid32 produced)
       Used to consume values from 0 till the values produced. 
+      
+      Wait() - Wait() system call, decrements the semaphore value, if the resultant value is positive it will allow the calling process to execute. If it's negative, it will add the calling process to the queue of waiting processes.
+      
+      Signal() - Signal() system call, increments the semaphore value and allows the waiting process to continue execution.
 
 4. Producer.c function done by Sujith
    Consume.c  function done by Supreeth.
