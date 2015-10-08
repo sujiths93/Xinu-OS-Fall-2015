@@ -1,17 +1,15 @@
-#include<prodcons.h>
+#include<future.h>
 
-void consumer(int count,sid32 consumed,sid32 produced)
+int future_cons(future *fut)
 {	
 	
-	int i;
-	for(i=0;i<=count;i++)
-	{
-	   wait(consumed);	
-	   kprintf("Consumed:%d\n",n);
-	   signal(produced);	
-	}
-	
-exit(0);
+ int status;  
+status = future_get(fut, &n);
+  if (status < 1) {
+    printf("future_get failed\n");
+    return -1;
+  }
+  printf("it produced %d\n", n);
+  return OK;
 }
-	  
 	

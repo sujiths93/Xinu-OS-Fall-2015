@@ -1,17 +1,8 @@
-#include <prodcons.h>
-
-void producer(int count,sid32 consumed,sid32 produced)
-{
-
-	int i;
-	for(i=1;i<=count;i++)
-	{
-	  
-	  wait(produced);
-	  n=i;	  
-	  kprintf("Produced:%d \n",n);
-	  signal(consumed);
-	}
-
-exit(0);
+#include <future.h>
+int future_prod(future *fut) {
+  
+  n=1;
+  future_set(fut, &n);
+  return OK;
 }
+

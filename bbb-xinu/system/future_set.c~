@@ -1,0 +1,17 @@
+#include <future.h>
+
+
+
+syscall future_set(future *f,int *value)
+{	
+	if(f->state==0||f->state==1)
+	{
+	f->value=*value;
+	f->state=FUTURE_VALID;
+	return OK;
+	}
+return SYSERR;	
+
+}	
+	
+	
