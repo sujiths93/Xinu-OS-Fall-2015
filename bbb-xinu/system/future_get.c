@@ -6,7 +6,7 @@ syscall future_get(future *f,int *value)
 {
 	
 	
-	if(f->state==FUTURE_EMPTY)
+	if(f->state==FUTURE_EMPTY || f->state==FUTURE_WAITING)
 	{
 	//printf("\n\nENTERING empty\n\n");
 	 f->tid=getpid();
@@ -19,7 +19,8 @@ syscall future_get(future *f,int *value)
 {	
 	 *value=f->value;
 	 //printf("\n\nENTERING VALID\n\n");
-	 f->state=0;
+	 f->state=FUTURE_EMPTY;
+	 future_free(f);
 	 return OK;
 }	
 	return SYSERR;
