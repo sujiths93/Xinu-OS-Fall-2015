@@ -7,7 +7,6 @@ syscall future_set(future *f,int *value)
 	if(f->state==0||f->state==1)
 	{
 	f->value=*value;
-	printf("VALUE=%d\n",*value);
 	f->state=FUTURE_VALID;
 	return OK;
 	}
