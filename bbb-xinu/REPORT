@@ -1,9 +1,15 @@
+Assumptions:
+-> We are defining a structure named "queue" which contains two variables which points to the front and rear end of the queue. 
+   An array is defined of type pid which will hold the process ID of each of the process created.
+-> We are calling sleep function for 1 second to ensure that the memory is freed only after all the threads complete their execution.
+-> In the file "xsh_prodcons.c", we are initializing the front and rear ends of all the future queues to 0.
+ 
+future.h - by Sujith and Supreeth
+xsh_prodcons.c - by Sujith and Supreeth
+future_get.c - by Sujith 
+future_set.c - by Supreeth
+future_alloc.c - by Sujith
+future_free.c - by Supreeth
+future_prod() - by Sujith
+future_cons() - by Supreeth
 
-
-   future_producer.c  Sujith
-   future_Consume.c   Supreeth.
-   prodcons.c         Sujith, Supreeth.
-   future_alloc.c     Supreeth
-   future_set.c       Sujith
-   future_get.c       Supreeth
-   future_free.c      Sujith 
