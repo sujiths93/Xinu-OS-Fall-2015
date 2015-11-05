@@ -8,6 +8,8 @@
 /* Table of Xinu shell commands and the function associated with each	*/
 /************************************************************************/
 const	struct	cmdent	cmdtab[] = {
+	{"stk",FALSE,xsh_stk},
+	{"len",FALSE,xsh_len},
 	{"reset",FALSE,xsh_reset},
 	{"prodcons", FALSE, xsh_prodcons},
 	{"hello",     FALSE,  xsh_hello},

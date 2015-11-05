@@ -4,6 +4,9 @@ extern	shellcmd  xsh_argecho	(int32, char *[]);
 /*in file xsh_hello.c*/
 shellcmd xsh_hello(int,char *[]);
 
+/*in file ninepointone.c*/
+shellcmd xsh_len(int, char *[]);
+shellcmd xsh_stk(int,char *[]);
 shellcmd xsh_reset(int,char *[]);
 
 /*in file xsh_prodcons.c*/

@@ -1,8 +1,9 @@
-#include <future.h>
+#include <xinu.h>
+
+extern sid32 consumed,produced; 
 extern int n;
+extern int i;
+void rec(struct procent *);
 
-future* future_alloc(int future_flag);
-syscall future_free(future *f);
-syscall future_get(future *f, int *value);
-syscall future_set(future *f,int *value);
-
+void consumer(int,sid32,sid32);
+void producer(int,sid32,sid32);

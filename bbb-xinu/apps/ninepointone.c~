@@ -1,0 +1,16 @@
+#include<xinu.h>
+shellcmd xsh_len(int argc,char *argv[])
+{
+	if(strncmp(argv[0],"len",3)==0)
+	{
+	struct memblk *cur;
+	
+	cur=&memlist;
+	
+	while(cur->mnext!=NULL)
+	{
+	   printf("Length of the heap is %d\n",cur->mlength);
+	}
+	}
+return 0;
+}

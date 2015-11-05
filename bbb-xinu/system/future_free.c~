@@ -1,17 +1,14 @@
-#include <future.h>
+#include<future.h>
 
-
-
-syscall future_free(future* f)
+syscall future_free(future *f)
 {
-	
-	
-	if(freemem(f,sizeof(future)))
-	{	
-		return OK;
-	}
-
-	else 
-		return SYSERR;
-}	
-	
+int mask=disable();
+ if(f)
+ {
+   freemem(f,sizeof(future));
+restore(mask);
+   return OK;
+ }
+restore(mask);
+ return SYSERR;
+}

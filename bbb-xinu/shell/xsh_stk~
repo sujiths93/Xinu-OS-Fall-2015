@@ -1,0 +1,22 @@
+#include <prodcons.h>
+
+shellcmd xsh_stk(int argc ,char * argv[])
+{
+	
+	int pidd;
+	char *c=NULL;
+	pidd=create("rec",1024,20,"process1",1,10);
+	resume(pidd);
+	c=proctab[pidd]->prstkptr;
+	printf("%u\n",c);
+	c=proctab[pidd]->prstknase;	
+	printf("%u",c);
+	sleep(5);
+	c=proctab[pidd]->prstkptr;
+	printf("%u\n",c);
+	c=proctab[pidd]->prstknase;
+	printf("%u",c);
+	
+return 0;
+}
+	
