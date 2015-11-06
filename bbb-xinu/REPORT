@@ -1,15 +1,29 @@
-Assumptions:
--> We are defining a structure named "queue" which contains two variables which points to the front and rear end of the queue. 
-   An array is defined of type pid which will hold the process ID of each of the process created.
--> We are calling sleep function for 1 second to ensure that the memory is freed only after all the threads complete their execution.
--> In the file "xsh_prodcons.c", we are initializing the front and rear ends of all the future queues to 0.
- 
-future.h - by Sujith and Supreeth
-xsh_prodcons.c - by Sujith and Supreeth
-future_get.c - by Sujith 
-future_set.c - by Supreeth
-future_alloc.c - by Sujith
-future_free.c - by Supreeth
-future_prod() - by Sujith
-future_cons() - by Supreeth
+1. Write a function that walks the list of free memory blocks and prints a line with the address and length of each block.
 
+We are allocating a pointer to structure memblk. We are traversing the list of free memory blocks that are available. Xinu would have coalesced all the free memory blocks that are available and made it as a single block. We are using a curr pointer which will always hold the address of the current block.
+
+Result : It will print the Address and the length of the memory of the block available. 
+
+2. Replace the low-level memory management functions with a set of functions that allocate heap and stack memory permanently (i.e., without providing a mechanism to return storage to a free list). How do the sizes of the new allocation routines compare to the sizes of getstk and getmem?
+
+We have implemented this using our own getstk and getmem functions viz. getstk1. We are allocating the memory based on the first fit allocation policy for getstk1.
+we are allocating the exact number of bytes required by the process. The system call getstk does the same functionality except it uses Last Fit allocation. So the sizes of the new allocation routine and getstk are the same. 
+
+3. Many embedded systems go through a prototype stage, in which the system is built on a general platform, and a final stage, in which minimal hardware is designed for the system. In terms of memory management, one question concerns the size of the stack needed by each process. Modify the code to allow the system to measure the maximum stack space used by a process and report the maximum stack size when the process exits.
+
+For this problem, we are allocating a stack for the newly created processes. We are updating the stack with a character ‘F’ till the “Overflow” condition is reached. After that, the system will overwrite the stack with whatever arguments the calling function uses. We’ll have the count of the initial number of characters that were placed in the stack and once the function call happens, we’ll have the remaining amount of characters from which we’ll calculate the amount of memory the stack has actually used to allocate the memory for arguments.
+
+ 
+xsh_len.c - by Sujith
+xsh_stk.c - by Supreeth
+xsh_stk1.c by Sujith and Supreeth
+create1.c by Sujith
+rec.c by Supreeth
+rec1.c by Sujith
+myversion.h by Supreeth
+prodcons.h by Sujith and Supreeth
+shprototypes.h by Sujith
+xinu.h by Supreeth
+shell.c by Sujith
+xsh_stksz.c by Sujith
+getmem1.c by Supreeth
