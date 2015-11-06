@@ -13,13 +13,14 @@ shellcmd xsh_len(int args,char *argv[])
 	               		cur=cur->mnext;
 				printf("Starting address is %d \n",cur);		
 				printf("Length of the heap is %u \n",cur->mlength);
-		
+				return OK;
 	 		}
 	
 
 	   	}
 		if(strncmp(argv[1],"--help",6)==0)
 		{
+		printf("Use : len\n");
 		printf("Description:\n");
 		printf("\t This will return the list of freely available address blocks and their respective length in bytes\n");
 		printf("\t--help\t display this help and exit\n");
