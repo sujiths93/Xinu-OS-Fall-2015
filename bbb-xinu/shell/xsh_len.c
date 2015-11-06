@@ -22,7 +22,7 @@ shellcmd xsh_len(int args,char *argv[])
 		{
  		printf("\n\nUse: %s -f \n\n", argv[0]);
 		printf("Description:\n");
-		printf("\t Enter flag for use of futures\n");
+		printf("\t This will return the list of freely available address blocks and their respective length in bytes\n");
 		printf("\t--help\t display this help and exit\n");
 		return OK;
 
