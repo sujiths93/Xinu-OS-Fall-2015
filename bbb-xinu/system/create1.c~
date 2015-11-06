@@ -77,21 +77,6 @@ printf("FINISHED ADDING\n");
 
 track=(char*) saddr;
 
-/*printf("PRINTING THE STACK CONTENTS\n");
-
-ctr=0;
-track=(char *) saddr;
---track;
-while(ctr<prptr->prstklen)
-	{
-		ctr++;
-			   
-		printf("%c\n",*track);
-	        --track;
-	   
-	}
-
-*/
 
 
 

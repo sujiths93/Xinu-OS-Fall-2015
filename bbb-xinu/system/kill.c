@@ -1,7 +1,7 @@
 /* kill.c - kill */
 
 #include <xinu.h>
-
+char *track;
 /*------------------------------------------------------------------------
  *  kill  -  Kill a process and remove it from the system
  *------------------------------------------------------------------------
@@ -29,7 +29,28 @@ syscall	kill(
 	for (i=0; i<3; i++) {
 		close(prptr->prdesc[i]);
 	}
-	freestk(prptr->prstkbase, prptr->prstklen);
+
+/*MY VERSION*/
+	int cnt=0;
+
+while(*track!='F')
+{
+			
+		--track;
+		++cnt;
+}
+printf("Number of bytes occupied is %d",cnt);
+
+
+
+
+
+
+
+
+
+
+	//freestk(prptr->prstkbase, prptr->prstklen);
 
 	switch (prptr->prstate) {
 	case PR_CURR:
