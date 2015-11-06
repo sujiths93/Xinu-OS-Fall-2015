@@ -9,6 +9,11 @@ Result : It will print the Address and the length of the memory of the block ava
 We have implemented this using our own getstk and getmem functions viz. getstk1. We are allocating the memory based on the first fit allocation policy for getstk1.
 we are allocating the exact number of bytes required by the process. The system call getstk does the same functionality except it uses Last Fit allocation. So the sizes of the new allocation routine and getstk are the same. 
 
+In getmem1, we are allocating the first free block whose size is greater than or equal to number of bytes required by the process. So exact number of bytes is not returned in this case. So the size of the new allocation routine will be greater than getmem system call. 
+
+We want to demonstrate here that if we allocate memory in this way, the process might take the entire free memory space and might not allow other processes to execute. Hence this is not a right approach. 
+This can be overcome by using the same logic used in getstk6 to allocate the required number of blocks. 
+
 3. Many embedded systems go through a prototype stage, in which the system is built on a general platform, and a final stage, in which minimal hardware is designed for the system. In terms of memory management, one question concerns the size of the stack needed by each process. Modify the code to allow the system to measure the maximum stack space used by a process and report the maximum stack size when the process exits.
 
 For this problem, we are allocating a stack for the newly created processes. We are updating the stack with a character ‘F’ till the “Overflow” condition is reached. After that, the system will overwrite the stack with whatever arguments the calling function uses. We’ll have the count of the initial number of characters that were placed in the stack and once the function call happens, we’ll have the remaining amount of characters from which we’ll calculate the amount of memory the stack has actually used to allocate the memory for arguments.
