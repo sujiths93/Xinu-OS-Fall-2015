@@ -13,7 +13,7 @@ if (argc==2)
 		}
 		if(strncmp(argv[1],"--help",6)==0)
 		{
- 		printf("\n\nUse: %s -f \n\n", argv[0]);
+ 		printf("\n\nUse: %s stk \n\n", argv[0]);
 		printf("Description:\n");
 		printf("\t This function will allocate the stack frame based on First Fit allocation technique\n\n");
 		printf("\t--help\t display this help and exit\n");
